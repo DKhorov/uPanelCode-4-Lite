@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="https://panelcode.netlify.app/system/p2pmarket.png">
+    <meta charset="UTF-8">
+    <title>uPanelCode Bionic Mobile</title>
+    <style>
+        body{
+            background-color: #202225;
+            margin: 0;
+            
+        }
+        .center{
+            display: flex;
+            justify-content: center;
+            
+        }
+        #area{
+            margin-top: 55px;
+            position: fixed;
+            width: 90%;
+            height: 85%;
+            border-radius: 10px;
+            font-size: 35px;
+        }
+        h1{
+            font-family: Arial,serif;
+            text-align: center;
+            color: yellow;
+            font-size: 40px;
+            user-select: none;
+            
+        }
+        .button{
+            position: fixed;
+            bottom: 0;
+            top: 70px;
+            ser-select: none;
+        }
+        .bth2{
+            background-color: #1e6ff7;
+            color: white;
+            border: solid #1e6ff7 1px;
+            width: 100px;
+            height: 40px;
+            border-radius: 5px;
+            transition: 0.5s;
+            margin-top: 21px;
+            margin-left: 30px;
+            ser-select: none;
+
+        }
+        .bth2:hover{
+            border: solid #1e6ff7 2px;
+            background:  transparent;
+            backdrop-filter: blur(10px);
+            opacity: 0.9;
+            color: #1e6ff7;
+            cursor: pointer;
+
+
+        }
+        .bth3{
+            background-color: #1e6ff7;
+            color: white;
+            border: solid #1e6ff7 1px;
+            width: 100px;
+            height: 40px;
+            border-radius: 5px;
+            transition: 0.5s;
+            margin-top: 21px;
+            margin-left: 30px;
+        }
+        .bth3:hover{
+            border: solid red 2px;
+            background:  transparent;
+            backdrop-filter: blur(10px);
+            opacity: 0.9;
+            color: red;
+
+
+        }
+
+    </style>
+</head>
+<body>
+<h1>uPanel<span style="color: red">Code</span><span style="color: white"> Lite</span></h1>
+
+<div class="center">
+    <textarea id="area" name="area">
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>uPanelCode Lite for Mobile</title>
+</head>
+<body>
+
+</body>
+</html>
+    </textarea>
+</div>
+
+<div class="center">
+  <div class="button">
+    <button class="bth2" onclick="start()">Start Code</button>
+    <button class="bth2" onclick="saveTextAsFile()">Save Code</button>
+    <button class="bth2" onclick="cook()">ExportSQH </button>
+    <button class="bth2" onclick="get()" >ImportSQH</button>
+    <button class="bth3" onclick="location.reload()">Reset</button>
+    <button class="bth2" onclick="shell()">Console</button>
+    <button class="bth2" onclick="openFullscreen()">Full Screen</button>
+  </div>
+</div>
+
+
+</body>
+</html>
+<script>
+    var elem = document.documentElement;
+    function openFullscreen() {
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { /* Firefox */
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE/Edge */
+            elem.msRequestFullscreen();
+        }
+    }
+
+    function saveTextAsFile() {
+        const textToSave = document.getElementById("area").value;
+        const textToSaveAsBlob = new Blob([textToSave], {type: "text/plain"});
+        const textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+        const fileNameToSaveAs = "index.html";
+
+        const downloadLink = document.createElement("a");
+        downloadLink.download = fileNameToSaveAs;
+        downloadLink.innerHTML = "Download File";
+        downloadLink.href = textToSaveAsURL;
+        downloadLink.onclick = destroyClickedElement;
+        downloadLink.style.display = "none";
+        document.body.appendChild(downloadLink);
+
+        downloadLink.click();
+    }
+
+    function destroyClickedElement(event) {
+        document.body.removeChild(event.target);
+    }
+
+    function start(){
+        let yu = document.getElementById("area").value;
+        document.writeln(yu);
+    }
+
+    function  cook() {
+        var dfrrrrrr = document.getElementById("area").value
+        localStorage.setItem("myCat", dfrrrrrr);
+        alert("Code is save in SQH DATA BASE")
+
+    }
+
+    function get() {
+        let rd = document.getElementById('area')
+        let cat = localStorage.getItem("myCat");
+        rd.innerHTML=  cat;
+
+    }
+
+    function savevantage() {
+        const textToSave = document.getElementById("area").value;
+        const textToSaveAsBlob = new Blob([textToSave], {type: "text/plain"});
+        const textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+        const fileNameToSaveAs = "pack.vantage";
+
+        const downloadLink = document.createElement("a");
+        downloadLink.download = fileNameToSaveAs;
+        downloadLink.innerHTML = "Download File";
+        downloadLink.href = textToSaveAsURL;
+        downloadLink.onclick = destroyClickedElement;
+        downloadLink.style.display = "none";
+        document.body.appendChild(downloadLink);
+
+        downloadLink.click();
+    }
+    function shell() {
+        let rd = prompt("Command:")
+        if (rd === "delete[text from panelcode.cms]"){
+
+            let rd = document.getElementById('area')
+
+            rd.innerHTML=" ";
+
+
+        }
+        if (rd === "delete[text from sqh]"){
+
+            localStorage.clear();
+
+
+        }
+        if (rd === "save[text from panelcode.cms]"){
+            saveTextAsFile()
+
+
+        }
+        if (rd === "Command 'save[text from panelcode.cms] in format[vantage]"){
+            savevantage()
+
+
+        }
+        if (rd === "Command 'save[text from panelcode.cms] in format[css]"){
+            const textToSave = document.getElementById("area").value;
+            const textToSaveAsBlob = new Blob([textToSave], {type: "text/plain"});
+            const textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+            const fileNameToSaveAs = "style.css";
+
+            const downloadLink = document.createElement("a");
+            downloadLink.download = fileNameToSaveAs;
+            downloadLink.innerHTML = "Download File";
+            downloadLink.href = textToSaveAsURL;
+            downloadLink.onclick = destroyClickedElement;
+            downloadLink.style.display = "none";
+            document.body.appendChild(downloadLink);
+
+            downloadLink.click();
+
+
+        }
+        if (rd === "Command 'save[text from panelcode.cms] in format[js]"){
+            const textToSave = document.getElementById("area").value;
+            const textToSaveAsBlob = new Blob([textToSave], {type: "text/plain"});
+            const textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+            const fileNameToSaveAs = "script.js";
+
+            const downloadLink = document.createElement("a");
+            downloadLink.download = fileNameToSaveAs;
+            downloadLink.innerHTML = "Download File";
+            downloadLink.href = textToSaveAsURL;
+            downloadLink.onclick = destroyClickedElement;
+            downloadLink.style.display = "none";
+            document.body.appendChild(downloadLink);
+
+            downloadLink.click();
+
+
+        }
+        if (rd === "get[inforamtion.cms]"){
+            alert(navigator.userAgent)
+
+
+        }
+
+        if (rd === "set[fullscreen]"){
+            openFullscreen()
+            let cd = document.getElementById('sdk')
+            cd.innerHTML = "Command fullscreen is complite  ";
+
+        }
+
+
+        if (rd === "open[web{github}]"){
+            window.open('https://github.com/')
+
+        }
+        if (rd === "open[web{google}]"){
+            window.open('https://google.com/')
+
+        }
+        if (rd === "open[web{apple}]"){
+            window.open('https://apple.com/')
+
+        }
+
+    }
+</script>
