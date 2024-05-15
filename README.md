@@ -1,5 +1,6 @@
-<h1>uPanelCode </h1>
-<h3>uPanelCode Bionic Lite for Mobile </h3>
+   <h1>uPanelCode </h1>
+  <h3>uPanelCode Bionic Lite for Mobile </h3>
+<pre>
 ********************************************
 Version Product : 4.5 Mobile
 ID Product: 123912731823789127391237
@@ -20,3 +21,4 @@ DK Studio Original Product
 (C) Copyright DK Studio All rights reserved 2024
 DKM Laboratory (R)
 DK Studio in GitHub (C)
+</pre>
