@@ -1,4 +1,4 @@
-   <h1>uPanelCode </h1>
+   <h1>uPanelCode Lite</h1>
   <h3>uPanelCode Bionic Lite for Mobile </h3>
 <pre>
 ********************************************
